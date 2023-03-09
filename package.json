@@ -1,0 +1,21 @@
+{
+  "name": "first-api-rest",
+  "version": "1.0.0",
+  "description": "my first API REST using Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "JavaScript",
+    "Express",
+    "API",
+    "REST"
+  ],
+  "author": "Sara Ragel Estévez",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
