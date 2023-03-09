@@ -2,7 +2,6 @@
 
 const express = require('express');
 const app = express();
-
 app.listen(3000);
 
 const pokemon = JSON.parse(`[
@@ -89,15 +88,19 @@ const pokemon = JSON.parse(`[
   ]`
 );
 
-app.use("/Pokemons", (_, res) => {
+app.get("/Pokemons", (_, res) => {
     res.json(pokemon);
-    res.status(404).json({ error: 'Not found' });
 });
 
-app.get("/Pokemons/:PokemonId", (req, res) => { // XQ NO FUNSIONA
-    let PokemonId = req.params.id;
-    res.json (pokemon[PokemonId]);
-    /* define error handling */
+app.get("/Pokemons/:PokemonId", (req, res) => { 
+    let PokemonId = req.params.PokemonId;
+    console.log(PokemonId);
+    let poke = pokemon[PokemonId];
+    if (poke !== undefined){
+        res.json (pokemon[PokemonId]);
+    } else {
+        res.status(404).json({ error: 'Not found' }); // error handling
+    }
 });
 
-app.use ("/static", express.static("public")); // postear cosas
+app.use ("/static", express.static("public")); // esta tarde investigar
